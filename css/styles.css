@@ -10,6 +10,7 @@
   --main-color: #576d81;
   --title-color: #0f2336;
   --green: #00cccc;
+  --orange: #f3af47;
   --radius: 8px;
   --font-regular: 400;
   --font-medium: 500;
@@ -39,6 +40,11 @@ ul {
 
 a {
   text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 /* Header */
@@ -85,6 +91,10 @@ a {
 }
 
 @media screen and (max-width: 767px) {
+  .header {
+    padding: 1.25rem 0;
+  }
+
   .header .wrapper {
     position: relative;
     flex-direction: column;
@@ -204,5 +214,109 @@ a {
   .footer__menu--item:not(:last-child) {
     margin-right: 1rem;
     margin-bottom: 2rem;
+  }
+}
+
+/* About */
+.about {
+  position: relative;
+  padding: 100px 0 0;
+}
+
+.about::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/about-bg.png');
+  background-size: 60% auto;
+  background-repeat: no-repeat;
+  background-position: 100% bottom;
+  z-index: -1;
+}
+
+.about .wrapper {
+  display: flex;
+}
+
+.about__text {
+  width: 50%;
+}
+
+.about h1 {
+  margin: 0 0 clamp(2rem, 6vw, 3.125rem);
+  font-size: clamp(2.5rem, 6vw, 3.4375rem);
+  line-height: 1.4;
+  font-weight: var(--font-bold);
+}
+
+.about h1 > span:first-of-type {
+  display: block;
+  color: var(--green);
+}
+
+.about h1 > span:last-of-type {
+  color: var(--orange);
+}
+
+.about button {
+  position: relative;
+  height: 60px;
+  padding: 19px 76px 19px 21px;
+  background: var(--green);
+  border: 1px solid var(--green);
+  border-radius: 14px;
+  font-size: 18px;
+  line-height: 1.2;
+  color: var(--title-color);
+  font-weight: var(--font-bold);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.about button:hover {
+  box-shadow: 0px 3px 18px rgba(0, 201, 201, 0.55);
+}
+
+.about button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 35px;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 17px;
+  background-image: url('../images/discover-icon.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: all 0.3s ease;
+}
+
+.about button:hover::after {
+  right: 25px;
+}
+
+.about__image img {
+  margin-bottom: -5px;
+}
+
+@media screen and (max-width: 992px) {
+  .about {
+    padding-top: 5vw;
+  }
+
+  .about::before {
+    display: none;
+  }
+
+  .about .wrapper {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .about__text {
+    width: 100%;
+    padding: 5vw 0 10vw;
   }
 }

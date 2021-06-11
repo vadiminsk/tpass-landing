@@ -384,6 +384,7 @@ img {
 .guide {
   padding: 3.125rem 0 15vw;
 }
+
 .cart {
   display: flex;
   background: var(--card-bg);
@@ -420,6 +421,27 @@ img {
   max-width: 70%;
 }
 
+.guide__reverse .cart {
+  flex-direction: row-reverse;
+  padding-left: 9.6vw;
+}
+
+.guide__reverse .cart__text p {
+  max-width: 100%;
+}
+
+.guide__reverse .cart__text {
+  flex-basis: 40%;
+}
+
+.guide__reverse .cart__image {
+  flex-basis: 50%;
+}
+
+.guide__reverse .cart__image img {
+  left: 0;
+}
+
 @media screen and (max-width: 992px) {
   .cart {
     flex-direction: column;
@@ -443,6 +465,19 @@ img {
   .cart__text p {
     max-width: 100%;
   }
+
+  .guide__reverse .cart {
+    flex-direction: column;
+    padding-left: 0;
+  }
+
+  .guide__reverse .cart__text {
+    flex-basis: 100%;
+  }
+
+  .guide__reverse .cart__image {
+    flex-basis: 100%;
+  }
 }
 
 /* Navigation */
@@ -458,6 +493,19 @@ img {
   border-radius: 50%;
   text-indent: -9999px;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* .navigation li.active {
+  width: 55px;
+  background: var(--green);
+  border-radius: 10px;
+} */
+
+.navigation li:hover {
+  width: 55px;
+  background: var(--green);
+  border-radius: 10px;
 }
 
 .navigation li:not(:last-child) {

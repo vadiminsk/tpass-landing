@@ -199,7 +199,7 @@ img {
 }
 
 .footer__menu a {
-  margin-bottom: 13px;
+  margin-bottom: 0.8125rem;
   font-size: 0.875rem;
   line-height: 1.4;
   color: rgba(255, 255, 255, 0.7);
@@ -516,4 +516,69 @@ img {
   .navigation {
     justify-content: center;
   }
+}
+
+/* Notification */
+.notification {
+  margin-bottom: 7vw;
+  position: relative;
+}
+
+.notification::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 120px);
+  transform: translateY(-50%);
+  background: var(--card-bg);
+  z-index: -1;
+}
+
+.notification .wrapper {
+  display: flex;
+}
+
+.notification__blocks {
+  flex: 0 1 45%;
+  padding-right: 3.125rem;
+  margin-top: 30px;
+}
+
+.notification__blocks .block {
+  display: flex;
+  padding: 1.5rem 1.875rem 2.5rem 1.5rem;
+  background: #ffff;
+  box-shadow: 0px 8px 32px rgba(15, 35, 54, 0.06);
+  border-radius: var(--radius);
+  transition: all 0.3s ease;
+}
+
+.notification__blocks .block:not(:last-child) {
+  margin-bottom: 1.875rem;
+}
+
+.notification__blocks .block:hover {
+  transform: translateX(40px);
+}
+
+.block__icon {
+  margin-right: 1.5rem;
+}
+
+.block__text {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.block__text h3 {
+  margin: 0.8125rem 0 1.5rem;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.notification__image {
+  flex: 0 1 55%;
+  margin-top: -80px;
 }

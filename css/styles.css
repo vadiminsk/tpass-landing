@@ -38,7 +38,7 @@ h5 {
 }
 
 .container {
-  max-width: 1140px;
+  max-width: 1170px;
   width: 100%;
   margin: 0 auto;
   padding: 0 15px;
@@ -579,6 +579,50 @@ img {
 }
 
 .notification__image {
+  position: relative;
   flex: 0 1 55%;
-  margin-top: -80px;
+}
+
+.notification__image img {
+  position: absolute;
+  bottom: 60px;
+}
+
+@media screen and (max-width: 767px) {
+  .notification .wrapper {
+    flex-direction: column-reverse;
+  }
+
+  .notification__image {
+    flex: 0 1 100%;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .notification__image img {
+    position: static;
+    max-height: 300px;
+  }
+
+  .notification__blocks {
+    flex: 0 1 100%;
+    padding-right: 0;
+  }
+
+  .notification__blocks .block {
+    padding: 1.2rem 1.5rem 2rem 1.2rem;
+  }
+
+  .block__icon {
+    margin-right: 1.2rem;
+  }
+
+  .block__text {
+    font-size: 0.875rem;
+  }
+
+  .block__text h3 {
+    margin: 0.5rem 0 1.2rem;
+    font-size: 1.2rem;
+  }
 }

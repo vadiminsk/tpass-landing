@@ -28,6 +28,7 @@ body {
   font-family: 'Roboto', sans-serif;
   font-weight: var(--font-regular);
   color: var(--main-color);
+  overflow-x: hidden;
 }
 
 h1,
@@ -56,6 +57,7 @@ a {
 img {
   max-width: 100%;
   height: auto;
+  transition: all 1s ease-in;
 }
 
 /* Header */
@@ -589,6 +591,30 @@ img {
   bottom: 60px;
 }
 
+.notification__image--animation {
+  position: absolute;
+  top: 60%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.notification__image--animation p {
+  padding: 0.2rem 0.5rem;
+  color: var(--green);
+  font-size: 0.875rem;
+  font-weight: var(--font-bold);
+  border-radius: 6px;
+  border: 1px solid var(--green);
+}
+
 @media screen and (max-width: 767px) {
   .notification .wrapper {
     flex-direction: column-reverse;
@@ -745,5 +771,22 @@ img {
     margin-right: 0;
     margin-bottom: 1.5rem;
     max-height: clamp(50px, 10vw, 80px);
+  }
+}
+
+/* Animation */
+@media screen and (min-width: 992px) {
+  .hidden {
+    overflow: hidden;
+  }
+
+  .hidden.hidden-left img {
+    opacity: 0;
+    transform: translateX(-100%) rotate(-45deg);
+  }
+
+  .hidden.hidden-right img {
+    opacity: 0;
+    transform: translateX(100%) rotate(45deg);
   }
 }

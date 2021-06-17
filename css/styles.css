@@ -86,9 +86,26 @@ img {
 }
 
 .header .menu__item a {
+  position: relative;
   color: var(--title-color);
   font-size: 0.875rem;
   line-height: 1.4;
+}
+
+.header .menu__item a::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  transform: translateX(-50%);
+  background-color: var(--green);
+  transition: all 0.3s ease;
+}
+
+.header .menu__item a:hover::after {
+  width: 100%;
 }
 
 .header__menu button {

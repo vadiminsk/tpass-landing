@@ -160,7 +160,7 @@ img {
   position: relative;
   padding: 3.85vw 0 7vw;
   background: var(--title-color);
-  overflow: hidden; /* Add this to body */
+  overflow: hidden;
 }
 
 .footer::before {
@@ -187,6 +187,17 @@ img {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+  animation: 3s linear 1s infinite alternate leafMove;
+}
+
+@keyframes leafMove {
+  from {
+    transform: none;
+  }
+  to {
+    transform: rotateX(5deg) rotateY(5deg) rotateZ(-7deg) translateX(1px)
+      translateY(-2px) translateZ(-6px) skewX(2deg) skewY(2deg);
+  }
 }
 
 .footer .wrapper {
@@ -781,13 +792,14 @@ img {
 
   .form__store {
     flex-direction: column;
-    text-align: center;
+    align-items: center;
   }
 
   .form__store img {
     margin-right: 0;
     margin-bottom: 1.5rem;
     max-height: clamp(50px, 10vw, 80px);
+    max-width: 200px;
   }
 }
 

@@ -28,6 +28,7 @@ body {
   font-family: 'Roboto', sans-serif;
   font-weight: var(--font-regular);
   color: var(--main-color);
+  overflow-x: hidden;
 }
 
 h1,
@@ -56,6 +57,7 @@ a {
 img {
   max-width: 100%;
   height: auto;
+  transition: all 1s ease-in;
 }
 
 /* Header */
@@ -84,9 +86,26 @@ img {
 }
 
 .header .menu__item a {
+  position: relative;
   color: var(--title-color);
   font-size: 0.875rem;
   line-height: 1.4;
+}
+
+.header .menu__item a::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  transform: translateX(-50%);
+  background-color: var(--green);
+  transition: all 0.3s ease;
+}
+
+.header .menu__item a:hover::after {
+  width: 100%;
 }
 
 .header__menu button {
@@ -141,7 +160,7 @@ img {
   position: relative;
   padding: 3.85vw 0 7vw;
   background: var(--title-color);
-  overflow: hidden; /* Add this to body */
+  overflow: hidden;
 }
 
 .footer::before {
@@ -168,6 +187,17 @@ img {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+  animation: 3s linear 1s infinite alternate leafMove;
+}
+
+@keyframes leafMove {
+  from {
+    transform: none;
+  }
+  to {
+    transform: rotateX(5deg) rotateY(5deg) rotateZ(-7deg) translateX(1px)
+      translateY(-2px) translateZ(-6px) skewX(2deg) skewY(2deg);
+  }
 }
 
 .footer .wrapper {
@@ -589,6 +619,30 @@ img {
   bottom: 60px;
 }
 
+.notification__image--animation {
+  position: absolute;
+  top: 60%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.notification__image--animation p {
+  padding: 0.2rem 0.5rem;
+  color: var(--green);
+  font-size: 0.875rem;
+  font-weight: var(--font-bold);
+  border-radius: 6px;
+  border: 1px solid var(--green);
+}
+
 @media screen and (max-width: 767px) {
   .notification .wrapper {
     flex-direction: column-reverse;
@@ -738,12 +792,30 @@ img {
 
   .form__store {
     flex-direction: column;
-    text-align: center;
+    align-items: center;
   }
 
   .form__store img {
     margin-right: 0;
     margin-bottom: 1.5rem;
     max-height: clamp(50px, 10vw, 80px);
+    max-width: 200px;
+  }
+}
+
+/* Animation */
+@media screen and (min-width: 992px) {
+  .hidden {
+    overflow: hidden;
+  }
+
+  .hidden.hidden-left img {
+    opacity: 0;
+    transform: translateX(-100%) rotate(-45deg);
+  }
+
+  .hidden.hidden-right img {
+    opacity: 0;
+    transform: translateX(100%) rotate(45deg);
   }
 }

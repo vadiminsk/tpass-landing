@@ -527,13 +527,7 @@ img {
   transition: all 0.3s ease;
 }
 
-/* .navigation li.active {
-  width: 55px;
-  background: var(--green);
-  border-radius: 10px;
-} */
-
-.navigation li:hover {
+.navigation li.active {
   width: 55px;
   background: var(--green);
   border-radius: 10px;

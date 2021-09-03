@@ -61,3 +61,14 @@ function showSlides(n) {
   slides[slideIndex - 1].style.display = 'block';
   dots[slideIndex - 1].className += ' active';
 }
+
+function openMenu() {
+  let header = document.getElementById('header');
+  let headerBurger = document.getElementById('header-burger');
+
+  headerBurger.addEventListener('click', function () {
+    header.classList.toggle('open');
+  });
+}
+
+openMenu();

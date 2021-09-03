@@ -95,10 +95,10 @@ img {
 .header .menu__item a::after {
   content: '';
   position: absolute;
-  bottom: -10px;
   left: 50%;
+  bottom: -10px;
   width: 0;
-  height: 2px;
+  height: 2px !important;
   transform: translateX(-50%);
   background-color: var(--green);
   transition: all 0.3s ease;
@@ -118,6 +118,63 @@ img {
   font-size: 14px;
   font-weight: var(--font-bold);
   cursor: pointer;
+}
+
+.header__burger {
+  position: relative;
+  display: none;
+  width: 60px;
+  height: 45px;
+  position: relative;
+  transform: rotate(0deg);
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.header__burger span {
+  position: absolute;
+  left: 0;
+  display: block;
+  height: 9px;
+  width: 100%;
+  background: #d3531a;
+  border-radius: 9px;
+  transform: rotate(0deg);
+  transition: 0.25s ease-in-out;
+  opacity: 1;
+}
+
+.header__burger span:nth-child(1) {
+  top: 0px;
+}
+
+.header__burger span:nth-child(2) {
+  top: 18px;
+}
+
+.header__burger span:nth-child(3) {
+  top: 36px;
+}
+
+.header__burger.open span:nth-child(1) {
+  top: 18px;
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+.header__burger.open span:nth-child(2) {
+  opacity: 0;
+  left: -60px;
+}
+
+.header__burger.open span:nth-child(3) {
+  top: 18px;
+  -webkit-transform: rotate(-135deg);
+  -moz-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  transform: rotate(-135deg);
 }
 
 @media screen and (max-width: 767px) {
@@ -152,6 +209,10 @@ img {
     right: 15px;
     height: 42px;
     padding: 0.8rem 1.25rem;
+  }
+
+  .header__burger {
+    display: block;
   }
 }
 
@@ -444,7 +505,8 @@ img {
 .cart__text h3 {
   margin: 1.375rem 0;
   font-weight: var(--font-black);
-  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  font-size: clamp(38px, 5vw, 52px);
+  font-size: 52px;
   line-height: 1.375;
 }
 
@@ -812,4 +874,11 @@ img {
     opacity: 0;
     transform: translateX(100%) rotate(45deg);
   }
+}
+
+.border {
+  width: 200px;
+  height: 200px;
+  background-color: #ccc;
+  border-radius: 50% 10px 50% 0;
 }
